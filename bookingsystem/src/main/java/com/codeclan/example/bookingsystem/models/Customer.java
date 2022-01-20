@@ -26,11 +26,11 @@ public class Customer {
     @JsonIgnoreProperties({"customer"})
     private ArrayList<Booking> bookings;
 
-    public Customer(String name, String town, int age, ArrayList<Booking> bookings) {
+    public Customer(String name, String town, int age) {
         this.name = name;
         this.town = town;
         this.age = age;
-        this.bookings = bookings;
+        this.bookings = new ArrayList<>();
     }
 
     public String getName() {

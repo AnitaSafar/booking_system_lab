@@ -27,11 +27,11 @@ public class Course {
     @JsonIgnoreProperties({"course"})
     private ArrayList<Booking> bookings;
 
-    public Course(String name, String town, Rating rating, ArrayList<Booking> bookings) {
+    public Course(String name, String town, Rating rating) {
         this.name = name;
         this.town = town;
         this.rating = rating;
-        this.bookings = bookings;
+        this.bookings = new ArrayList<>();
     }
 
     public Course() {
