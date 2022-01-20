@@ -34,6 +34,10 @@ public class Customer {
         this.bookings = new ArrayList<Booking>();
     }
 
+    public Customer() {
+
+    }
+
     public String getName() {
         return name;
     }
