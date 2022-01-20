@@ -9,5 +9,5 @@ public interface CourseRepository extends JpaRepository<Course, Long> {
 
     List<Course> findCourseByRating(int rating);
 
-    List<Course> findCourseByBookingsCustomerName(String name);
+    List<Course> findCourseByBookingsCustomerNameIgnoreCase(String name);
 }
