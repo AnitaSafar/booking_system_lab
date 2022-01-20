@@ -1,8 +1,10 @@
 package com.codeclan.example.bookingsystem;
 
 import com.codeclan.example.bookingsystem.controllers.CustomerController;
+import com.codeclan.example.bookingsystem.models.Booking;
 import com.codeclan.example.bookingsystem.models.Course;
 import com.codeclan.example.bookingsystem.models.Customer;
+import com.codeclan.example.bookingsystem.repositories.BookingRepository;
 import com.codeclan.example.bookingsystem.repositories.CourseRepository;
 import com.codeclan.example.bookingsystem.repositories.CustomerRepository;
 import org.junit.jupiter.api.Test;
@@ -26,6 +28,9 @@ class BookingsystemApplicationTests {
 	@Autowired
 	CustomerRepository customerRepository;
 
+	@Autowired
+	BookingRepository bookingRepository;
+
 	@Test
 	public void canFindCoursesByRating() {
 	List<Course> found = courseRepository.findCourseByRating(4);
@@ -41,6 +46,12 @@ class BookingsystemApplicationTests {
 	@Test
 	public void canFindCourseByCustomer() {
 		List<Course> found = courseRepository.findCourseByBookingsCustomerName("Bob");
+		assertEquals(1, found.size());
+	}
+
+	@Test
+	public void canFindBookingByDate() {
+		List<Booking> found = bookingRepository.findBookingByDate("30/10/22");
 		assertEquals(1, found.size());
 	}
 }
