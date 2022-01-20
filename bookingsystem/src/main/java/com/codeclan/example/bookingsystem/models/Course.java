@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "courses")
@@ -20,18 +21,17 @@ public class Course {
     private String town;
 
     @Column(name = "rating")
-    @Enumerated(value = EnumType.ORDINAL)
-    private Rating rating;
+    private int rating;
 
     @OneToMany(mappedBy = "course")
     @JsonIgnoreProperties({"course"})
-    private ArrayList<Booking> bookings;
+    private List<Booking> bookings;
 
-    public Course(String name, String town, Rating rating) {
+    public Course(String name, String town, int rating) {
         this.name = name;
         this.town = town;
         this.rating = rating;
-        this.bookings = new ArrayList<>();
+        this.bookings = new ArrayList<Booking>();
     }
 
     public Course() {
@@ -54,19 +54,19 @@ public class Course {
         this.town = town;
     }
 
-    public Rating getRating() {
+    public int getRating() {
         return rating;
     }
 
-    public void setRating(Rating rating) {
+    public void setRating(int rating) {
         this.rating = rating;
     }
 
-    public ArrayList<Booking> getBookings() {
+    public List<Booking> getBookings() {
         return bookings;
     }
 
-    public void setBookings(ArrayList<Booking> bookings) {
+    public void setBookings(List<Booking> bookings) {
         this.bookings = bookings;
     }
 

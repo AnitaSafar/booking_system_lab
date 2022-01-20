@@ -3,7 +3,6 @@ package com.codeclan.example.bookingsystem.components;
 import com.codeclan.example.bookingsystem.models.Booking;
 import com.codeclan.example.bookingsystem.models.Course;
 import com.codeclan.example.bookingsystem.models.Customer;
-import com.codeclan.example.bookingsystem.models.Rating;
 import com.codeclan.example.bookingsystem.repositories.BookingRepository;
 import com.codeclan.example.bookingsystem.repositories.CourseRepository;
 import com.codeclan.example.bookingsystem.repositories.CustomerRepository;
@@ -29,13 +28,13 @@ public class DataLoader implements ApplicationRunner {
     }
 
     public void run(ApplicationArguments args) {
-        Course one = new Course("One", "Edinburgh", Rating.FOUR);
+        Course one = new Course("One", "Edinburgh", 4);
         courseRepository.save(one);
     
-        Course two = new Course("Two", "Glasgow", Rating.TWO);
+        Course two = new Course("Two", "Glasgow", 2);
         courseRepository.save(two);
         
-        Course three = new Course("Three", "London", Rating.FIVE);
+        Course three = new Course("Three", "London", 5);
         courseRepository.save(three);
 
         Customer alice = new Customer("Alice", "Dundee", 35);
